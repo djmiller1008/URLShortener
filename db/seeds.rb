@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+tt1 = TagTopic.create!(name: 'Search')
+tt2 = TagTopic.create!(name: 'Movies')
+
+Tagging.create!(shortened_url: su1, tag_topic: tt1)
+Tagging.create!(shortened_url: su2, tag_topic: tt1)
+Tagging.create!(shortened_url: su3, tag_topic: tt2)
