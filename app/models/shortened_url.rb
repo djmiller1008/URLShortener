@@ -2,6 +2,16 @@ class ShortenedUrl < ApplicationRecord
     validates :short_url, :long_url, :user_id, presence: true
     validates :short_url, uniqueness: true
 
+    has_many :taggings,
+        primary_key: :id,
+        foreign_key: :short_url_id,
+        class_name: :Tagging,
+        dependent: :destroy
+
+    has_many :tag_topics,
+        through: :taggings,
+        source: :tag_topic
+
     belongs_to :user,
         primary_key: :id,
         foreign_key: :user_id,
